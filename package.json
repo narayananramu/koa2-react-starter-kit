@@ -1,0 +1,31 @@
+{
+  "name": "koa2-react-starter",
+  "version": "1.0.0",
+  "description": "Koa 2 React Starter Kit",
+  "main": "app.js",
+  "repository": "https://github.com/narayananramu/tringle-retail.git",
+  "author": "Narayanan M Ramanathan <narayananramu6@gmail.com>",
+  "license": "",
+  "private": true,
+  "dependencies": {
+    "koa": "^2.2.0",
+    "koa-ejs": "^4.0.0",
+    "koa-router": "^7.2.0",
+    "koa-session": "^5.1.0",
+    "koa-static": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "react": "^15.5.4",
+    "react-addons-css-transition-group": "^15.5.2",
+    "react-addons-transition-group": "^15.5.2",
+    "react-dom": "^15.5.4",
+    "reactstrap": "^4.6.2",
+    "webpack-stream": "^3.2.0"
+  }
+}
