@@ -18,25 +18,40 @@ try{
 }
 
 gulp.task('babel-server', function(){
-    return gulp.src([path.join(__dirname, "src/*.js"), path.join(__dirname, "src/controllers/*.js")],{base: "src"})
-        .pipe(babel())
+    return gulp.src([path.join(__dirname, "source/*.js"), path.join(__dirname, "source/controllers/*.js"), path.join(__dirname, "source/models/*.js")],{base: "source"})
+        .pipe(babel({
+            presets: ["react","env"],
+            plugins: ["transform-async-to-generator","transform-es2015-modules-commonjs","transform-runtime"]
+        }))
         .pipe(gulp.dest(path.join(__dirname,"build")));
 });
 
 gulp.task('babel-react', function(){
-    return gulp.src([path.join(__dirname, "src/react/*.jsx")])
-        .pipe(babel())
+    return gulp.src([path.join(__dirname, "source/react/**/**")])
+        .pipe(babel({
+            presets: ["es2015","react","stage-0"]
+        }))
         .pipe(gulp.dest(path.join(__dirname,"build/react")));
 });
 
+
 gulp.task('webpack-react', function(){
-    return gulp.src([path.join(__dirname,"build/react/*.js")])
+    return gulp.src([path.resolve(__dirname,"build/react/*.js"), path.resolve(__dirname, "build/react/**/*.js") ])
         .pipe(webpack(
             {
                 entry: entries,
                 output: {
                     path: path.join(__dirname,"build/public/js"),
                     filename: "[name]"
+                },
+                module: {
+                    loaders : [
+                        {
+                            test : /\.jsx?/,
+                            loader : 'babel',
+                            exclude: /node_modules/
+                        }
+                    ]
                 }
             }
         ))
