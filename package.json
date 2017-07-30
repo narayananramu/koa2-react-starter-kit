@@ -11,6 +11,7 @@
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
     "koa-ejs": "^4.0.0",
+    "koa-redis": "^3.0.0",
     "koa-router": "^7.2.0",
     "koa-session": "^5.1.0",
     "koa-static": "^3.0.0",
